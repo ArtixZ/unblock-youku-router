@@ -1142,12 +1142,10 @@ class UnblockYouku(object):
         if self._black_urls is not None:
             return self._black_urls
 
-        header_urls = self.extract('header_urls')
-        redirect_urls = self.extract('redirect_urls')
-        chrome_proxy_urls = self.extract('chrome_proxy_urls')
-        pac_proxy_urls = self.extract('pac_proxy_urls')
+        header_urls = self.extract('HEADER_URLS')
+        proxy_urls = self.extract('PROXY_URLS')
 
-        self._black_urls = header_urls + redirect_urls + chrome_proxy_urls + pac_proxy_urls
+        self._black_urls = header_urls + proxy_urls
         self._black_urls = list(set(self._black_urls))
         self._black_urls.sort()
 
@@ -1202,7 +1200,7 @@ class UnblockYouku(object):
 
     def extract(self, name):
         """从 Unblock Youku 的 urls.js 中提取指定的 URL 列表"""
-        pattern = f"unblock_youku\\.{name}\\s*=.+?(\\[.+?\\])"
+        pattern = f"const\s*{name}\s*=.+?(\[.+?\])"
         match = re.search(pattern, self.source, re.DOTALL)
         if not match:
             elogger.error(f"✘ 从 Unblock Youku 提取 {name} 规则失败")

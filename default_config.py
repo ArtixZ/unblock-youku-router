@@ -14,7 +14,7 @@ SURGE_DIR_PATH = os.path.join(DIR_PATH, "surge")
 SHADOWSOCKS_DIR_PATH = os.path.join(DIR_PATH, "shadowsocks")
 
 # Unblock Youku 的规则文件 urls.js 链接
-UNBLOCK_YOUKU_URLSJS_URL = "https://raw.githubusercontent.com/uku/Unblock-Youku/master/shared/urls.js"
+UNBLOCK_YOUKU_URLSJS_URL = "https://raw.githubusercontent.com/uku/Unblock-Youku/master/configs/urls.mjs"
 
 
 # --- router ---
