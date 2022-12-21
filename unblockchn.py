@@ -1144,6 +1144,7 @@ class UnblockYouku(object):
 
         header_urls = self.extract('HEADER_URLS')
         proxy_urls = self.extract('PROXY_URLS')
+        proxy_urls.append("http://www.ip138.com/*")
 
         self._black_urls = header_urls + proxy_urls
         self._black_urls = list(set(self._black_urls))
