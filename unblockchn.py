@@ -1157,10 +1157,9 @@ class UnblockYouku(object):
         if self._white_urls is not None:
             return self._white_urls
 
-        chrome_proxy_bypass_urls = self.extract('chrome_proxy_bypass_urls')
-        pac_proxy_bypass_urls = self.extract('pac_proxy_bypass_urls')
+        proxy_bypass_urls = self.extract('PROXY_BYPASS_URLS')
 
-        self._white_urls = chrome_proxy_bypass_urls + pac_proxy_bypass_urls
+        self._white_urls = proxy_bypass_urls 
         self._white_urls = list(set(self._white_urls))
         self._white_urls.sort()
 
